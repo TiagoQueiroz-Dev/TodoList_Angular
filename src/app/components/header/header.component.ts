@@ -5,6 +5,7 @@ import { MatDividerModule } from "@angular/material/divider";
 import { MatIconModule } from "@angular/material/icon";
 import { MatDialog, MatDialogModule } from "@angular/material/dialog";
 import { TodoFormComponent } from '../todo-form/todo-form.component';
+import { TodoCardComponent } from '../todo-card/todo-card.component';
 
 
 @Component({
@@ -26,6 +27,12 @@ export class HeaderComponent {
 
   handleOpenModal(){
     this.dialogService.open(TodoFormComponent,{
+      width: '50vw',
+      maxHeight: '80vh'
+    })
+  }
+  teste(){
+    this.dialogService.open(TodoCardComponent,{
       width: '50vw',
       maxHeight: '80vh'
     })

@@ -10,11 +10,11 @@ export class TodoSignalService {
   public todoStorage = signal<Array<todoModel>>([]);
 
 
-  public updatetodos(requestData: todoModel){
-    if (requestData != null) {
+  public updatetodos({ id, title, description, done }: todoModel){
+    if ((title && id && description !== null) || undefined) {
       this.todoStorage.mutate((todos) => {
         if (todos != null) {
-          todos.push(requestData);
+          todos.push(new todoModel(id, title, description, done));
         }
       })
     }

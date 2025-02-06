@@ -37,16 +37,15 @@ export class TodoFormComponent {
   });
 
   public handleCreateNewTodo(): void{
-    if (this.addTodosForm.valid && this.addTodosForm.value) {
-      var NewTodo!: todoModel;
-      NewTodo.title = String(this.addTodosForm.controls['title'].value);
-      NewTodo.description = String(this.addTodosForm.controls['description'].value);
-      NewTodo.id = this.allTodos.length > 0 ? this.allTodos.length + 1 : 1;
-      NewTodo.done = false;
+    //if (this.addTodosForm.valid && this.addTodosForm.value) {
+      const title = String(this.addTodosForm.controls['title'].value);
+      const description = String(this.addTodosForm.controls['description'].value);
+      const id = this.allTodos.length > 0 ? this.allTodos.length + 1 : 1;
+      const done = false;
 
-      this.todoSignalService.updatetodos(NewTodo);
+      this.todoSignalService.updatetodos({ id, title, description, done });
       console.log('OPAAA')
-    }
+    //}
     this.dialogService.close();
   }
 
