@@ -9,6 +9,7 @@ import { MatInputModule } from "@angular/material/input";
 import { todoModel } from 'src/app/models/model/TodoModel';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { HeaderComponent } from '../header/header.component';
+import { TodoCardComponent } from '../todo-card/todo-card.component';
 
 @Component({
   selector: 'app-todo-form',
@@ -24,12 +25,14 @@ import { HeaderComponent } from '../header/header.component';
     MatDialogModule
   ],
   templateUrl: './todo-form.component.html',
-  styleUrls: []
+  styleUrls: [],
+  providers: [TodoCardComponent]
 })
 export class TodoFormComponent {
   private todoSignalService = inject(TodoSignalService);
   private dialogService = inject(MatDialogRef<HeaderComponent>)
   public allTodos = this.todoSignalService.todoStorage();
+  private todoCardForm = inject(TodoCardComponent);
 
   public addTodosForm = new FormGroup({
     title: new FormControl('',[Validators.required, Validators.minLength(3)]),
@@ -38,15 +41,18 @@ export class TodoFormComponent {
 
   public handleCreateNewTodo(): void{
     //if (this.addTodosForm.valid && this.addTodosForm.value) {
+
       const title = String(this.addTodosForm.controls['title'].value);
       const description = String(this.addTodosForm.controls['description'].value);
       const id = this.allTodos.length > 0 ? this.allTodos.length + 1 : 1;
       const done = false;
 
       this.todoSignalService.updatetodos({ id, title, description, done });
-      console.log('OPAAA')
+
     //}
     this.dialogService.close();
+    this.todoCardForm.teste(0);//não ta funcionando e o motivo eu ainda não sei
+
   }
 
   public close(): void{
