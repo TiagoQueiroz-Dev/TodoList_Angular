@@ -20,6 +20,14 @@ export class TodoSignalService {
     }
     this.setLocalStorage();
   }
+  public edittodos({ id, title, description, done }: todoModel){
+    if ((title && id && description !== null) || undefined) {
+      this.todoStorage.mutate((todos) => {
+       todos.find((todo) => {if (todo.id === id) { todo.title = title, todo.description = description}})
+      }), console.log('TODOS STORAGE',this.todoStorage())
+    }
+    this.setLocalStorage();
+  }
 
 
   public setLocalStorage(): void{

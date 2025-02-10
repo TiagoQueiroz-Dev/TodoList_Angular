@@ -4,11 +4,12 @@
         <mat-card class="todo_card" *ngIf="!tarefa.done">
           <mat-card-header>
             <mat-card-title class="todo_card_title">{{tarefa.title}}</mat-card-title>
-            <mat-card-subtitle class="todo_card_title">{{tarefa.description}}</mat-card-subtitle>
+            <mat-card-subtitle class="todo_card_subtitle">{{tarefa.description}}</mat-card-subtitle>
           </mat-card-header>
-          <mat-card-actions>
+          <mat-card-actions align="end">
             <button class="header_btn check-btn" mat-icon-button aria-label="Concluir Tarefa" (click)="concluirTarefa(tarefa.id)"> <mat-icon> done_all</mat-icon></button>
             <button class="header_btn check-btn todo_form_delete_btn" mat-icon-button aria-label="Deletar Tarefa" (click)="deletarTarefa(tarefa)"> <mat-icon>delete_forever</mat-icon></button>
+            <button class="header_btn check-btn todo_form_warn_btn" color="warning" mat-icon-button aria-label="Editar Tarefa" (click)="editarTarefa(tarefa.id)" > <mat-icon>edit_note</mat-icon></button>
           </mat-card-actions>
         </mat-card>
       </div>
@@ -18,17 +19,14 @@
         <mat-card class="todo_card" *ngIf="tarefa.done">
           <mat-card-header>
             <mat-card-title class="todo_card_title">{{tarefa.title}}</mat-card-title>
-            <mat-card-subtitle class="todo_card_title">{{tarefa.description}}</mat-card-subtitle>
+            <mat-card-subtitle class="todo_card_subtitle">{{tarefa.description}}</mat-card-subtitle>
           </mat-card-header>
-          <mat-card-actions>
-            <button class="header_btn check-btn" mat-icon-button aria-label="Concluir Tarefa" (click)="concluirTarefa(tarefa.id)"> <mat-icon> done_all</mat-icon></button>
+          <mat-card-actions align="end">
+            <button class="header_btn check-btn" mat-icon-button aria-label="Concluir Tarefa" (click)="retornarTarefa(tarefa.id)"> <mat-icon> done_all</mat-icon></button>
             <button class="header_btn check-btn todo_form_delete_btn" color="warning" mat-icon-button aria-label="Deletar Tarefa" (click)="deletarTarefa(tarefa)"> <mat-icon>delete_forever</mat-icon></button>
           </mat-card-actions>
         </mat-card>
       </div>
-    </mat-tab>
-    <mat-tab label="teste">
-
     </mat-tab>
 </mat-tab-group>
 

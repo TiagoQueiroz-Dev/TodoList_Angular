@@ -1,4 +1,4 @@
-<form [formGroup]="addTodosForm" (ngSubmit)="handleCreateNewTodo()">
+<form [formGroup]="addTodosForm" (ngSubmit)="separaEditarAdicionar()">
   <section class="todo_form_card">
     <h1 class="todo_form_title">Adicionar Tarefa</h1>
 
@@ -17,5 +17,5 @@
       <button mat-raised-button color="warn" type="button" (click)="close()">Cancelar</button>
     </div>
   </section>
-  
+
 </form>

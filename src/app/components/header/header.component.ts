@@ -1,3 +1,4 @@
+import { TodoCardComponent } from './../todo-card/todo-card.component';
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from "@angular/material/button";
@@ -18,7 +19,7 @@ import { TodoFormComponent } from '../todo-form/todo-form.component';
     MatIconModule,
     MatDialogModule],
   templateUrl: './header.component.html',
-  styleUrls: [],
+  styleUrls: []
 })
 export class HeaderComponent {
 
@@ -26,11 +27,17 @@ export class HeaderComponent {
 
 
 
+
   handleOpenModal(){
     this.dialogService.open(TodoFormComponent,{
       width: '50vw',
-      maxHeight: '80vh'
+      maxHeight: '80vh',
     })
   }
+
+  // public editarteste(): void{
+  //   var tarefa = this.todoCardComponent.editarTarefa();
+  //   console.log('dentro do form', tarefa);
+  // }
 
 }
